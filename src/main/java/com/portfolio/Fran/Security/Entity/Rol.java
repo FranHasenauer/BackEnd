@@ -1,4 +1,3 @@
-
 package com.portfolio.Fran.Security.Entity;
 
 import com.portfolio.Fran.Security.Enums.RolNombre;
@@ -12,15 +11,15 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class Rol {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @NotNull
     @Enumerated(EnumType.STRING)
     private RolNombre rolNombre;
-    
-    //Constructor
 
+    //Constructor
     public Rol() {
     }
 
@@ -44,6 +43,4 @@ public class Rol {
         this.rolNombre = rolNombre;
     }
 
-   
-    
 }
