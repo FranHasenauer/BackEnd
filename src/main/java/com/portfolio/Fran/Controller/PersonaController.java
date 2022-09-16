@@ -4,6 +4,7 @@ import com.portfolio.Fran.Entity.Persona;
 import com.portfolio.Fran.Interface.IPersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,20 +41,20 @@ public class PersonaController {
 
     @PutMapping("/personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
-                                                        @RequestParam("nombre") String nuevoNombre,
-                                                        @RequestParam("apellido") String nuevoApellido,
-                                                        @RequestParam("img") String nuevaImg) {
+            @RequestParam("nombre") String nuevoNombre,
+            @RequestParam("apellido") String nuevoApellido,
+            @RequestParam("img") String nuevaImg) {
         Persona persona = ipersonaService.findPersona(id);
         persona.setNombre(nuevoNombre);
         persona.setApellido(nuevoApellido);
         persona.setImg(nuevaImg);
-        
+
         ipersonaService.savePersona(persona);
         return persona;
     }
-    
+
     @GetMapping("/personas/traer/perfil")
-    public Persona findPersona(){
-        return ipersonaService.findPersona((long)1);
+    public Persona findPersona() {
+        return ipersonaService.findPersona((long) 1);
     }
 }

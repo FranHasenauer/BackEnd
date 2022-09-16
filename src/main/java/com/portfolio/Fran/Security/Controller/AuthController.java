@@ -1,8 +1,8 @@
 package com.portfolio.Fran.Security.Controller;
 
-import com.portfolio.Fran.Security.Dto.JwtDTO;
-import com.portfolio.Fran.Security.Dto.LoginUsuario;
-import com.portfolio.Fran.Security.Dto.NuevoUsuario;
+import com.portfolio.Fran.Security.Model.JwtDTO;
+import com.portfolio.Fran.Security.Model.LoginUsuario;
+import com.portfolio.Fran.Security.Model.NuevoUsuario;
 import com.portfolio.Fran.Security.Entity.Rol;
 import com.portfolio.Fran.Security.Entity.Usuario;
 import com.portfolio.Fran.Security.Enums.RolNombre;
@@ -30,7 +30,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class AuthController {
 
     @Autowired
@@ -71,6 +71,7 @@ public class AuthController {
 
     }
 
+   
     @PostMapping("/login")
     public ResponseEntity<JwtDTO> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {

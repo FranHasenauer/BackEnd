@@ -1,4 +1,4 @@
-package com.portfolio.Fran.Security.Dto;
+package com.portfolio.Fran.Security.Model;
 
 import java.util.HashSet;
 import java.util.Set;
