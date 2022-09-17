@@ -1,0 +1,59 @@
+[33mcommit 82448607c522289230b0ca26e33b409bb63a5aac[m[33m ([m[1;36mHEAD -> [m[1;32mpruebas[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/controller[m[33m, [m[1;32mmaster[m[33m, [m[1;32mcontroller[m[33m)[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Fri Sep 16 20:57:41 2022 -0300
+
+    terminado jwt con cuenta usuario completa
+
+[33mcommit 30b2a24ade3cca88efa67af1e20deba07f3db286[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Fri Sep 9 16:35:04 2022 -0300
+
+    funcionando prueba en postman
+
+[33mcommit fe6f20ff46c5f05388c4c1999b97892521e5429c[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Thu Sep 8 10:04:56 2022 -0300
+
+    terminado el controller y solucionado bugs
+
+[33mcommit bec4a12854af7f29482a64dab4956259f55ccddc[m[33m ([m[1;32mjwt[m[33m)[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Thu Sep 8 07:19:39 2022 -0300
+
+    terminado el paquete JWT
+
+[33mcommit 537efd4477df7fccfcb9d8130124e5eb3dc65c02[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Tue Sep 6 19:55:46 2022 -0300
+
+    solucionado problema de UserDetailsImpl
+
+[33mcommit 4ee2c3c0e7dfb0d4d4238305b70fb4d9638ed3cd[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Tue Sep 6 15:08:08 2022 -0300
+
+    Terminado paquete Repository
+
+[33mcommit c4dc1ad59ac4f416b43435f8251fff20a7fcec69[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Tue Sep 6 14:59:35 2022 -0300
+
+    terminado paquete Entity
+
+[33mcommit 558f3b5e5295425650df048460da1f9a38573322[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Tue Sep 6 14:39:26 2022 -0300
+
+    Creada carpeta Security y usuarios
+
+[33mcommit 7067b94f194a8b715097855ca91589d0d38465c0[m[33m ([m[1;31morigin/packages[m[33m, [m[1;32mpackages[m[33m)[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Tue Sep 6 08:12:53 2022 -0300
+
+    creacion de paquetes exitosa
+
+[33mcommit 7854c78caa1d54b5ba580ab11a9575d32d9c1525[m
+Author: FranHasenauer <franciscohasenauer@gmail.com>
+Date:   Mon Sep 5 15:38:13 2022 -0300
+
+    primer commit
