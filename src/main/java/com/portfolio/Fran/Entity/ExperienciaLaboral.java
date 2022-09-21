@@ -1,12 +1,9 @@
 package com.portfolio.Fran.Entity;
 
-import java.util.Date;
-import java.util.logging.Logger;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class ExperienciaLaboral {

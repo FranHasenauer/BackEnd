@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -32,7 +33,20 @@ public class ExperienciaLaboralController {
         return new ResponseEntity(list, HttpStatus.OK);
     }
 
-    @PostMapping("/crear")
+    @GetMapping("/detail/{id}")
+    public ResponseEntity<ExperienciaLaboral> getById(@PathVariable("id") int id) {
+
+        if (!experienciaLaboralService.existById(id)) {
+            return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        }
+
+        ExperienciaLaboral experiencia = experienciaLaboralService.getOne(id).get();
+
+        return new ResponseEntity(experiencia, HttpStatus.OK);
+
+    }
+
+    @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoExperienciaLaboral dtoExp) {
         if (StringUtils.isBlank(dtoExp.getNombreEmpresa())) {
             return new ResponseEntity(new Mensaje("Necesitas poner un nombre"), HttpStatus.BAD_REQUEST);
@@ -40,23 +54,24 @@ public class ExperienciaLaboralController {
         if (experienciaLaboralService.existByNombreEmpresa(dtoExp.getNombreEmpresa())) {
             return new ResponseEntity(new Mensaje("Experiencia ya existente"), HttpStatus.BAD_REQUEST);
         }
-        ExperienciaLaboral experienciaLaboral = new ExperienciaLaboral(dtoExp.getNombreEmpresa(),dtoExp.getFechaIn(),dtoExp.getFechaOut(),dtoExp.getPuestoEmpresa(),dtoExp.getDomicilioEmpresa(),dtoExp.getDescripcionEmpresa(),dtoExp.getUrlEmpresa());
+        ExperienciaLaboral experienciaLaboral = new ExperienciaLaboral(dtoExp.getNombreEmpresa(), dtoExp.getFechaIn(), dtoExp.getFechaOut(), dtoExp.getPuestoEmpresa(), dtoExp.getDomicilioEmpresa(), dtoExp.getDescripcionEmpresa(), dtoExp.getUrlEmpresa());
         experienciaLaboralService.save(experienciaLaboral);
         return new ResponseEntity(new Mensaje("Experiencia creada!"), HttpStatus.OK);
     }
+
     @PutMapping("/update/{id}")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody DtoExperienciaLaboral dtoExp) {
-        if (!experienciaLaboralService.existById(id)) 
+        if (!experienciaLaboralService.existById(id)) {
             return new ResponseEntity(new Mensaje("ID inexistente"), HttpStatus.BAD_REQUEST);
-        
+        }
 
-        if (experienciaLaboralService.existByNombreEmpresa(dtoExp.getNombreEmpresa()) && experienciaLaboralService.getByNombreEmpresa(dtoExp.getNombreEmpresa()).get().getId() != id) 
+        if (experienciaLaboralService.existByNombreEmpresa(dtoExp.getNombreEmpresa()) && experienciaLaboralService.getByNombreEmpresa(dtoExp.getNombreEmpresa()).get().getId() != id) {
             return new ResponseEntity(new Mensaje("Experiencia ya existente"), HttpStatus.BAD_REQUEST);
-        
+        }
 
-        if (StringUtils.isBlank(dtoExp.getNombreEmpresa())) 
+        if (StringUtils.isBlank(dtoExp.getNombreEmpresa())) {
             return new ResponseEntity(new Mensaje("Necesitas poner un nombre"), HttpStatus.BAD_REQUEST);
-        
+        }
 
         ExperienciaLaboral experienciaLaboral = experienciaLaboralService.getOne(id).get();
         experienciaLaboral.setNombreEmpresa(dtoExp.getNombreEmpresa());
@@ -69,12 +84,14 @@ public class ExperienciaLaboralController {
         experienciaLaboralService.save(experienciaLaboral);
         return new ResponseEntity(new Mensaje("Experiencia laboral actualizada"), HttpStatus.OK);
     }
-    @PutMapping("/delete/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id")int id){
-          if (!experienciaLaboralService.existById(id)) 
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") int id) {
+        if (!experienciaLaboralService.existById(id)) {
             return new ResponseEntity(new Mensaje("ID inexistente"), HttpStatus.BAD_REQUEST);
-          experienciaLaboralService.delete(id);
-          return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
+        }
+        experienciaLaboralService.delete(id);
+        return new ResponseEntity(new Mensaje("Experiencia eliminada"), HttpStatus.OK);
     }
-    
+
 }
