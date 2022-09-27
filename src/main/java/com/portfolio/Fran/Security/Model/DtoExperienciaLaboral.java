@@ -1,8 +1,6 @@
 package com.portfolio.Fran.Security.Model;
 
-import java.util.Date;
 import javax.validation.constraints.NotBlank;
-import org.springframework.format.annotation.DateTimeFormat;
 
 public class DtoExperienciaLaboral {
 
