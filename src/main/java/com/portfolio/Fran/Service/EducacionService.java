@@ -39,7 +39,7 @@ public class EducacionService {
     
     public boolean existByNombreE(String nombreE){
         return repoEdu.existsByNombreE(nombreE);
-    }
+}
     public boolean existById(int id) {
         return repoEdu.existsById(id);
     }

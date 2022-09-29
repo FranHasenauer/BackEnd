@@ -5,7 +5,7 @@ package com.portfolio.Fran.Dto;
 public class DtoEducacion {
     private String nombreE;
     private String descripcionE;
-
+//Constructor
     public DtoEducacion() {
     }
 
@@ -13,7 +13,7 @@ public class DtoEducacion {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
     }
-
+//Getters y Setters
     public String getNombreE() {
         return nombreE;
     }
