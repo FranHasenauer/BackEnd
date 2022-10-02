@@ -30,8 +30,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "https://frontendfranh.web.app")
-//@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins="https://frontendfranh.web.app")
 public class AuthController {
 
     @Autowired
