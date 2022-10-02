@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins="https://frontendfranh.web.app/")
-//@CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
 
     @Autowired
@@ -28,14 +27,14 @@ public class PersonaController {
         return ipersonaService.getPersona();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @PostMapping("/personas/crear")
     public String createPersona(@RequestBody Persona persona) {
         ipersonaService.savePersona(persona);
         return "Creacion exitosa";
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+   
     @DeleteMapping("/personas/borrar/{id}")
     public String deletePersona(@PathVariable Long id) {
         ipersonaService.deletePersona(id);
@@ -61,6 +60,6 @@ public class PersonaController {
 
     @GetMapping("/personas/traer/perfil")
     public Persona findPersona() {
-        return ipersonaService.findPersona((long) 1);
+        return ipersonaService.findPersona((long)1);
     }
 }
