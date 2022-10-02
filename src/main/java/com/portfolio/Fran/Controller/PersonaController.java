@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins="https://frontendfranh.web.app")
+@CrossOrigin(origins="https://frontendfranh.web.app/")
 //@CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
 
