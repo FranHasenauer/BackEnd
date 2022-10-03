@@ -16,7 +16,7 @@ public class FranApplication {
     public WebMvcConfigurer corsConfigurer(){
         return new WebMvcConfigurer() {
         public void addCorsMapping(CorsRegistry registry){
-            registry.addMapping("/edu/lista").allowedOrigins("https://frontendfranh.web.app/");
+            registry.addMapping("/lista").allowedOrigins("https://frontendfranh.web.app/");
         }
         };
     }
