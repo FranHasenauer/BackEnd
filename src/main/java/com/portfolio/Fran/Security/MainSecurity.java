@@ -4,6 +4,7 @@ import com.portfolio.Fran.Security.Jwt.JwtEntryPoint;
 import com.portfolio.Fran.Security.Jwt.JwtTokenFilter;
 import com.portfolio.Fran.Security.Service.UserDetailsServiceImpl;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
