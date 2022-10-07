@@ -3,6 +3,7 @@ package com.portfolio.Fran.Security;
 import com.portfolio.Fran.Security.Jwt.JwtEntryPoint;
 import com.portfolio.Fran.Security.Jwt.JwtTokenFilter;
 import com.portfolio.Fran.Security.Service.UserDetailsServiceImpl;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +51,12 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 //                .authenticationEntryPoint(jwtEntryPoint).and().sessionManagement()
 //                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 //        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+
+//        List<String> strings = List.newArrayList("Authorization", "Cache-Control", "Content-Type");
+        
+        List<String> list = Arrays.asList(new String[]{"Authorization", "Cache-Control", "Content-Type"});
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedHeaders(List.of("Authorization", "Cache-Control", "Content-Type"));
+        corsConfiguration.setAllowedHeaders(list);
         corsConfiguration.setAllowedOrigins(List.of(frontend_url));
         corsConfiguration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowCredentials(true);
