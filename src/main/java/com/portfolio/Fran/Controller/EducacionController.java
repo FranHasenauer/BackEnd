@@ -29,10 +29,13 @@ public class EducacionController {
    
     
       @GetMapping("/lista")
-    public ResponseEntity<List<Educacion>> list() {
-        List<Educacion> list = eduService.list();
-        return new ResponseEntity(list, HttpStatus.OK);
-    }
+      public String list(){
+          return "anda";
+      };
+//    public ResponseEntity<List<Educacion>> list() {
+//        List<Educacion> list = eduService.list();
+//        return new ResponseEntity(list, HttpStatus.OK);
+//    }
      @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") int id) {
 
