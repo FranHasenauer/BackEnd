@@ -62,7 +62,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
         corsConfiguration.setExposedHeaders(list4);
 
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("*").permitAll();
+        http.authorizeRequests().antMatchers("**").permitAll();
         http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.cors().configurationSource(request -> corsConfiguration);
