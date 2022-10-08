@@ -47,11 +47,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.cors().and().csrf().disable().authorizeRequests().antMatchers("**").permitAll()
-//                .anyRequest().authenticated().and().exceptionHandling()
-//                .authenticationEntryPoint(jwtEntryPoint).and().sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+
 
         List<String> list1 = Arrays.asList(new String[]{"Authorization", "Cache-Control", "Content-Type"});
         List<String> list2 = Arrays.asList(new String[]{frontend_url});
@@ -67,7 +63,6 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
         http.authorizeRequests().antMatchers("/auth/*").permitAll();
-//        http.authorizeRequests().antMatchers("/edu/*").permitAll(); //todo:eliminarLinea
         http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.cors().configurationSource(request -> corsConfiguration);

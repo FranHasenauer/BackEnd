@@ -1,4 +1,3 @@
-
 package com.portfolio.Fran.Controller;
 
 import com.portfolio.Fran.Dto.DtoEducacion;
@@ -10,7 +9,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,20 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/edu")
 public class EducacionController {
-    
+
     @Autowired
     EducacionService eduService;
-   
-    
-      @GetMapping("/lista")
-      public String list(){
-          return "anda";
-      };
-//    public ResponseEntity<List<Educacion>> list() {
-//        List<Educacion> list = eduService.list();
-//        return new ResponseEntity(list, HttpStatus.OK);
-//    }
-     @GetMapping("/detail/{id}")
+
+    @GetMapping("/lista")
+    public ResponseEntity<List<Educacion>> list() {
+        List<Educacion> list = eduService.list();
+        return new ResponseEntity(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/detail/{id}")
     public ResponseEntity<Educacion> getById(@PathVariable("id") int id) {
 
         if (!eduService.existById(id)) {
@@ -48,7 +43,8 @@ public class EducacionController {
         return new ResponseEntity(educacion, HttpStatus.OK);
 
     }
-     @PostMapping("/create")
+
+    @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody DtoEducacion dtoEdu) {
         if (StringUtils.isBlank(dtoEdu.getNombreE())) {
             return new ResponseEntity(new Mensaje("Necesitas poner un nombre"), HttpStatus.BAD_REQUEST);
@@ -77,14 +73,13 @@ public class EducacionController {
 
         Educacion educacion = eduService.getOne(id).get();
         educacion.setNombreE(dtoEdu.getNombreE());
-        
+
         educacion.setDescripcionE(dtoEdu.getDescripcionE());
-        
+
         eduService.save(educacion);
         return new ResponseEntity(new Mensaje("Educacion laboral actualizada"), HttpStatus.OK);
     }
 
-    
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!eduService.existById(id)) {
