@@ -19,6 +19,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 
 @Configuration
@@ -52,7 +53,6 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 //                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 //        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
-//        List<String> strings = List.newArrayList("Authorization", "Cache-Control", "Content-Type");
         List<String> list1 = Arrays.asList(new String[]{"Authorization", "Cache-Control", "Content-Type"});
         List<String> list2 = Arrays.asList(new String[]{frontend_url});
         List<String> list3 = Arrays.asList(new String[]{"GET", "POST", "PUT", "DELETE", "OPTIONS"});
@@ -67,10 +67,11 @@ public class MainSecurity extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();
         http.authorizeRequests().antMatchers("/auth/*").permitAll();
-        http.authorizeRequests().antMatchers("/edu/*").permitAll();
+//        http.authorizeRequests().antMatchers("/edu/*").permitAll(); //todo:eliminarLinea
         http.authorizeRequests().anyRequest().authenticated().and().httpBasic();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         http.cors().configurationSource(request -> corsConfiguration);
+        http.addFilterBefore(jwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
 
     }
 
