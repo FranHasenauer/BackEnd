@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.portfolio.Fran.FranApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.122 s - in com.portfolio.Fran.FranApplicationTests
