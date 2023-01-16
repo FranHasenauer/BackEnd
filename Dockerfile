@@ -5,7 +5,7 @@
 FROM amazoncorretto:11-alpine-jdk
 MAINTAINER FranH
 COPY target/Fran-0.0.1-SNAPSHOT.jar Fran-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","/Fran-SPRINGBOOT.jar"]
+ENTRYPOINT ["java","-jar","/Fran-0.0.1-SNAPSHOT.jar"]
 
 CMD ["/bin/sh"]
 
